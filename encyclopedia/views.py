@@ -1,8 +1,10 @@
 import django.http
+
 from django.shortcuts import render
 from . import util
 from .forms.encyclopedia import forms
 from django.core import files
+from random import choice
 
 
 def index(request):
@@ -42,4 +44,5 @@ def new_entry(request):
 
 
 def random(request):
-    return render(request, "encyclopedia/error.html")
+    random_entry = choice(util.list_entries())
+    return entry(request, random_entry)
