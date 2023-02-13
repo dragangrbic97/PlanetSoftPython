@@ -1,7 +1,16 @@
 import re
+import markdown
+import html2text
 
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
+
+
+def md_to_html(text):
+    """
+    Converts markdown to html.
+    """
+    return markdown.markdown(text)
 
 
 def list_entries():
